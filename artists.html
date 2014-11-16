@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>VTU</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.dropotron.min.js"></script>
+	<script src="js/jquery.scrolly.min.js"></script>
+	<script src="js/jquery.onvisible.min.js"></script>
+	<script src="js/jquery.simpleWeather.js"></script>
+	<script src="js/jquery.simpleWeather.min.js"></script>
+
+
+
+	<script>
+	$(document).ready(function() {
+		$.simpleWeather({
+			location: 'Blacksburg, VA',
+			woeid: '12796475',
+			unit: 'f',
+			success: function(weather) {
+
+				html = '<h2>'+weather.temp+'&deg;'+'</h2>';
+
+				$("#weather").html(html);
+			},
+			error: function(error) {
+				$("#weather").html('<p>'+error+'</p>');
+			}
+		});
+	});
+
+
+
+	</script>
+
+
+
+	<script src="js/skel.min.js"></script>
+	<script src="js/skel-layers.min.js"></script>
+	<script src="js/init.js"></script>
+	<script src="js/weather.js"></script>
+
+
+	<noscript>
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-desktop.css" />
+		<link rel="stylesheet" href="css/style-noscript.css" />
+	</noscript>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+<body class="homepage">
+
+	<script>
+	$(document).ready(function (){
+		$('body').css('opacity', '0').fadeTo(1500, 1,'swing'); 
+	});
+	</script>
+
+
+
+	<script src="js/weather.js"></script>
+
+
+
+
+	<!-- Header -->
+	<div id="header2">
+
+		<!-- Inner -->
+		<div class="inner">
+			<header>
+				<h1><a href="#banner" id="logo" class="scrolly">Welcome to Virginia Tech!</a></h1>
+				<hr />
+			</header>
+			<footer>
+				<div id="weather"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/loader.gif" alt="Loading..." class="loading"></div>
+				<p2>Blacksburg, VA</p2>
+			</footer>
+		</div>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+
+				<li>
+					<a href="">Menu</a>
+					<ul>
+						<li><a href="Directors/directors.html" >Directors</a></li>
+						<li><a href="index.html#signup" class="scrolly">Join VTU!</a></li>
+						<li>
+							<a href="index.html#signup" class="scrolly">Connect with us &hellip;</a>
+						</li>
+					</ul>
+				</li>
+
+				<li><a href="Committees/concerts.html">Concerts</a></li>
+				<li><a href="Committees/alts.html">Alt Sounds</a></li>
+				<li><a href="Committees/speakers.html">Speakers</a></li>
+				<li><a href="Committees/live.html">Lively Arts</a></li>
+				<li><a href="Committees/films.html">Films</a></li>
+				<li><a href="Committees/special.html">Special Events</a></li>
+				<li><a href="Committees/hh.html">House & Hospitality</a></li>
+				<li><a href="Committees/pr.html">Public Relations</a></li>
+
+			</ul>
+		</nav>
+
+	</div>
+
+
+	<!-- Main -->
+	<div id="welcome" class="wrapper style2">
+
+		<article id="main" class="container special">
+			<header>
+				<p></p>
+				<p2>
+					The Virginia Tech Union would like to welcome you to Virginia Tech! We hope this section of our website will help you during your stay in Blacksburg. This website will provide you with venue information, campus visit information as well as information on Blacksburg and the surrounding community.
+
+					The Virginia Tech Union was formed in 1969, stemming from the university's belief that there should be one main student organization on campus that brings social and educational entertainment to Virginia Tech. At that time, the VTU became a University Chartered Student Organization and has since been the largest student programming board on campus. VTU is run by and for students. Acts are selected and brought to campus by the work of student committees and its advisors. VTU strives to make each performer's appearance on campus the best it can be.
+				</p2>
+
+				<p><a href="#venues" class="scrolly button">Check Out Our Venues</a></p>
+
+
+			</header>
+		</article>
+
+
+	</div>
+
+
+
+	<!-- Carousel -->
+	<section class="carousel">
+		<div id="venues">			<p></p>
+			<center><h2>Available Venues</h2></center>
+			<p>_____________________________________________________________________________________________________________________________________________________________________________________</p>
+		</div>
+		<div id="venues" class="reel">
+
+
+			<article>
+				<a href="http://www.vt.edu/about/buildings/burruss-hall.html" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.vt.edu/about/buildings/burruss-hall.html">Burruss Auditorium</a></h3>
+				</header>
+				<p>A 3000-seat, five-section auditorium with seating located on the same level. Wheelchair seating is located in the right-center section at the middle cross aisle. The auditorium is also equipped with infrared assistive listening devices. The wireless devices can be reserved by calling the box office at 540-231-5615.</p>							
+			</article>
+
+
+			<article>
+				<a href="http://www.performingarts.vt.edu/get-to-know-us/location-facilities/recital-salon" class="image featured"><img src="images/pic07.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.performingarts.vt.edu/get-to-know-us/location-facilities/recital-salon">Recital Salon</a></h3>
+				</header>
+				<p>The Recital Salon is located on the 2nd floor in Squires Student Center. The venue is maintained by the music department at Tech. The Recital Salon is an acoustically designed hall with good sight lines and seating for 240. Wheelchair seating is located in the rear of the house.</p>							
+			</article>
+
+			<article>
+				<a href="http://www.studentcenters.vt.edu/tickets/venues/index.html#pleat-2" class="image featured"><img src="images/pic011.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.studentcenters.vt.edu/tickets/venues/index.html#pleat-2">Colonial Hall</a></h3>
+				</header>
+				<p>650 seat theatre/classroom style facility located on the 2nd floor of Squires Student Center. Wheelchair seating is located at the front of the hall.  Large area in front that can be used for speakers and different presentation installations.  Rear space is also available.</p>							
+			</article>
+
+			<article>
+				<a href="http://www.studentcenters.vt.edu/eventservices/production_services/venues_and_services/commonwealth/index.html" class="image featured"><img src="images/pic08.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.studentcenters.vt.edu/eventservices/production_services/venues_and_services/commonwealth/index.html">Commonwealth Ballroom</a></h3>
+				</header>
+				<p>The Commonwealth Ballroom is a multi-purpose facility with a large stage. Good for small concerts, banquets, dances, etc. Capacity varies from 450-1800 and the room can be divided into two sections approximately 2/3 + 1/3 of entire ballroom.</p>							
+			</article>
+
+			<article>
+				<a href="http://www.studentcenters.vt.edu/tickets/venues/index.html#pleat-5" class="image featured"><img src="images/pic09.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.studentcenters.vt.edu/tickets/venues/index.html#pleat-5">Old Dominion Ballroom</a></h3>
+				</header>
+				<p>Smaller facility than the Commonwealth Ballroom with similar uses. Capacity varies from 150-500 depending on event type and room setup. Room is not dividable, but does have a balcony. The ballroom is located on the first floor just across from the Student Centers.</p>							
+			</article>
+
+			<article>
+				<a href="http://www.studentcenters.vt.edu/tickets/venues/index.html#pleat-4" class="image featured"><img src="images/pic010.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.studentcenters.vt.edu/tickets/venues/index.html#pleat-4">Haymarket Theatre</a></h3>
+				</header>
+				<p>500 seat theatre located on the 2nd floor in Squires Student Center. Wheelchair seating is located in right of the house. Wireless assistive listening devices may be reserved by contacting the Ticket Office for any ticketed event beforehand. Entrances are located on every floor of the theater</p>							
+			</article>
+
+			<article>
+				<a href="http://www.performingarts.vt.edu/get-to-know-us/location-facilities/studio-theatre" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.performingarts.vt.edu/get-to-know-us/location-facilities/studio-theatre">Studio Theatre</a></h3>
+				</header>
+				<p>The Studio Theatre is located on the 2nd floor in Squires Student Center and is managed by the Theater Department at Virginia Tech. The theatre is small (seating capacity 222), intimate, and has excellent sound and lighting. Wheelchair seating is located in the rear of the house. </p>							
+			</article>
+
+
+			<article>
+				<a href="http://www.thelyric.com/" class="image featured"><img src="images/pic012.jpg" alt="" /></a>
+				<header>
+					<h3><a href="http://www.thelyric.com/">Lyric Theatre</a></h3>
+				</header>
+				<p>Since 1998, the Lyric has operated a not-for-profit movie theatre and community center in the heart of downtown Blacksburg, Virginia. They are located on College Avenue across the street from Virginia Tech's main campus.  It has also been home to live music acts.</p>							
+			</article>
+
+		</div>
+
+
+	</section>
+
+
+
+
+
+
+			<!-- Footer -->
+			<div id="footer">
+				<div class="container">
+					<div class="row">
+
+
+						<!-- Tweets -->
+						<section id="connect" class="4u">
+							<header>
+								<h2 class="icon fa-twitter circled"><span class="label">Tweets</span></h2>
+							</header>
+							<ul class="divided">
+								<a class="twitter-timeline" href="https://twitter.com/thevtu" data-chrome="noheader nofooter noborders transparent noscrollbar" data-widget-id="407536189659283456">Tweets by @thevtu</a>
+								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+							</ul>
+						</section>
+
+						<!-- Posts -->
+						<section class="4u">
+							<header>
+								<h2 class="icon fa-file circled"><span class="label">Contact Us</span></h2>
+							</header>
+							<ul class="divided">
+								<!-- Begin MailChimp Signup Form -->
+								<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+								<style type="text/css">
+								#mc_embed_signup{clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+	</style>
+	<div id="mc_embed_signup">
+		<form action="//vtu.us9.list-manage.com/subscribe/post?u=4bc468b1225d8eea7a8667ded&amp;id=38bd627915" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+			<div id="mc_embed_signup_scroll">
+				<h2>Updates:</h2>
+				<div class="mc-field-group">
+					<label for="mce-EMAIL" style="color: #FFFFFF">Enter Email Address:</label>
+					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+				</div>
+				<div id="mce-responses" class="clear">
+					<div class="response" id="mce-error-response" style="display:none"></div>
+					<div class="response" id="mce-success-response" style="display:none"></div>
+				</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+				<div style="position: absolute; left: -5000px;"><input type="text" name="b_4bc468b1225d8eea7a8667ded_38bd627915" tabindex="-1" value=""></div>
+				<p></p>
+				<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+			</div>
+		</form>
+	</div>
+
+
+
+
+
+	<!--End mc_embed_signup-->
+
+	<p> </p>
+	<h1> </h1>
+	<p> </p>
+
+</ul>
+</section>
+
+<!-- Photos -->
+<section class="4u">
+	<header>
+		<h2 class="icon fa-facebook circled"><span class="label">Photos</span></h2>
+	</header>
+
+	<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fthevtu&amp;width=300&amp;height=558&amp;colorscheme=dark&amp;show_faces=true&amp;header=false&amp;stream=true&amp;show_border=false&amp;appId=737808339632553" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:500;" allowTransparency="true"></iframe>
+
+
+</section>
+
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<div id="footer">
+		<div class="container">
+
+			<hr />
+			<div id="fb" class="row">
+				<div class="12u">
+
+					<!-- Contact -->
+					<section class="contact">
+						<header>
+						</header>
+						<ul class="icons">
+							<li><a href="http://twitter.com/thevtu" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="http://facebook.com/thevtu" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="http://instagram.com/thevtu" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						</ul>
+					</section>
+
+					<!-- Copyright -->
+					<div class="copyright">
+						<img src="images/DSALogo.png" alt="" />
+
+						<ul class="menu">
+							<li>&copy; Virginia Tech Union  <li>All rights reserved</li></li><li>Design: <a href="http://cozma.tk">Dag Yeshiwas </a></li>
+						</ul>
+						<ul class="menu">
+							<li><p3>
+								<br>
+								327 Squires Student Center<br>
+								Blacksburg, VA 24061<br>
+								Office: 540.231.7117<br>
+								Fax: 540.231.7028
+							</p3></li>
+
+							<li>
+								<p3>
+									<a href="http://www.vt.edu">VT Home</a><br>
+									<a href="http://calendar.vt.edu">VT Events Calendar </a><br>
+									<a href="http://studentcenters.vt.edu">Student Centers</a><br>
+									<a href="http://www.tickets.vt.edu">SCA Box Office</a><br>
+									<a href="http://vtnews.vt.edu">VTnews</a><br>
+								</p3><li>
+							</ul>
+
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</body>
+	</html>

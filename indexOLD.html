@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<title>reBay</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+	<script src="js/jquery.onvisible.min.js"></script>
+
+	<script src="js/jquery.scrolly.min.js"></script>
+	<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+
+	<script src="js/skel.min.js"></script>
+	<script src="js/init.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-wide.css" />
+		<link rel="stylesheet" href="css/style-normal.css" />
+	</noscript>
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+</head>
+<body>
+	<!-- Header -->
+	<header id="header">
+		<!-- Logo -->
+		<!--<h1 id="logo">Ebay Donation Center</h1>-->
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro">Home</a></li>
+				<li><a href="#one">Choose Item</a></li>
+				<li><a href="#two">Add to Cart</a></li>
+				<li><a href="#work">Review Checkout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<!-- Intro -->
+	<section id="intro" class="main style1 dark fullscreen">
+		<div class="content container 75%">
+			<header>
+				<h2>reBay</h2>
+			</header>
+			<p>Welcome to <strong>doBay</strong> a website that takes the stress of donating your own clothes and allows you to pick and purchase reasonable clothing items from eBay to purchase and donate to your choice of charity</a>.</p>
+			<footer>
+				<a href="#one" class="button style2 down">More</a>
+			</footer>
+		</div>
+	</section>
+
+	<!-- One -->
+	<section id="one" class="main style2 right dark fullscreen">
+		<button class = "search style2" onclick="alert('Hello world!')">Click Me!</button>
+		<select class = "box1 style2" width = "300" style = "width: 300px" id = "Clothing" onChange = "clothingSelect()">
+			<option value="Select Clothing">Select Clothing</option>
+			<option value="Shirt">Shirt</option>
+			<option value="Pants">Pants</option>
+			<option value="Shoes">Shoes</option>
+		</select>
+		<select class = "box2 style2" width = "300" style = "width: 300px" id = "Gender" onChange = "clothingSelect()">
+			<option value="Select Gender">Select Gender</option>
+			<option value="Male">Male</option>
+			<option value="Woman">Woman</option>
+		</select>
+		<script>
+		function clothingSelect(){
+			var col = document.getElementById('Clothing');
+			var gen = document.getElementById('Gender');
+			var clothingResult = col.options[col.selectedIndex].text;
+			var genderResult = gen.options[gen.selectedIndex].text
+			if(clothingResult != "Select Clothing"){
+				if(genderResult != "Select Gender"){
+					alert(clothingResult + "+" + genderResult);
+				}
+			}
+		}
+
+
+		</script>
+	</section>
+
+	<!-- Carousel -->
+	<section class="carousel">
+		<div class="reel">
+
+
+			<article>
+				<script>
+
+				var listID =[];
+				var items = [];
+
+	// Parse the response and build an HTML table to display search results
+	function _cb_findItemsByKeywords(root) {
+
+		items = root.findItemsByKeywordsResponse[0].searchResult[0].item || [];
+		var html = [];
+
+		html.push('<table width="100%" border="0" cellspacing="0" cellpadding="3"><tbody>');
+		html.push("<tr>") ;
+		for (var i = 0; i < items.length; ++i) {
+			var item     = items[i];
+			var title    = item.title;
+			var pic      = item.galleryURL;
+			var viewitem = item.viewItemURL;
+
+
+			if (null != title && null != viewitem) {
+				html.push('<td>' + '<a href="' + viewitem + '" target="_blank"><img src="' + pic + '" border="0">' + '</a></td>');
+			}
+
+			console.log(viewitem);
+
+			var url = viewitem[0].split(/[\/,\?]+/);
+			var ID = url[4];
+			listID.push(ID);
+			console.log(listID[i]);
+
+		}
+				for (var i = 0; i < items.length; ++i) {
+
+			html.push('<input type="checkbox" name="' + i + '" value=' + i + '" id=pic' + i + '">');
+		}
+		html.push("</tr>");
+
+
+		html.push('</tbody></table>');
+		document.getElementById("results").innerHTML = html.join(" ");
+
+
+
+
+
+}  // End _cb_findItemsByKeywords() function
+
+	//Checks if boxes are selected
+	function checkBoxes() {
+		var checkedIDList = [];
+		for (var i = 0; i < listID.length; ++i){
+			if (document.getElementById(i).checked){
+				listID(i).push(checkedIDList);
+			}
+		}
+	}
+
+	//Make URL
+	function makeURL(){
+		var urlStart = "http://cart.payments.ebay.com/sc/add?ssPageName=CART:ATC";
+		var urlIDFront = "&item=iid:";
+		var urlIDBack = ",qty:1";
+		for (i = 0; i < checkedIDList.length; ++i){
+			var idFUll =+ urlIDFront + checkedIDList(i) + urlIDBack;
+		}
+		var cartURL = urlStart + idFUll;
+	}
+
+
+// Create a JavaScript array of the item filters you want to use in your request
+var filterarray = [
+{"name":"MaxPrice", 
+"value":"5", 
+"paramName":"Currency", 
+"paramValue":"USD"},
+{"name":"FreeShippingOnly", 
+"value":"true", 
+"paramName":"", 
+"paramValue":""},
+{"name":"ListingType", 
+"value":["FixedPrice", "StoreInventory"], 
+"paramName":"", 
+"paramValue":""},
+];
+
+// Define global variable for the URL filter
+var urlfilter = "";
+
+
+// Generates an indexed URL snippet from the array of item filters
+function  buildURLArray() {
+  // Iterate through each filter in the array
+  for(var i=0; i<filterarray.length; i++) {
+    //Index each item filter in filterarray
+    var itemfilter = filterarray[i];
+    // Iterate through each parameter in each item filter
+    for(var index in itemfilter) {
+      // Check to see if the paramter has a value (some don't)
+      if (itemfilter[index] !== "") {
+      	if (itemfilter[index] instanceof Array) {
+      		for(var r=0; r<itemfilter[index].length; r++) {
+      			var value = itemfilter[index][r];
+      			urlfilter += "&itemFilter\(" + i + "\)." + index + "\(" + r + "\)=" + value ;
+      		}
+      	} 
+      	else {
+      		urlfilter += "&itemFilter\(" + i + "\)." + index + "=" + itemfilter[index];
+      	}
+      }
+  }
+}
+}  // End buildURLArray() function
+
+// Execute the function to build the URL filter
+buildURLArray(filterarray);
+
+// Construct the request
+// Replace MyAppID with your Production AppID
+var url = "http://svcs.ebay.com/services/search/FindingService/v1";
+url += "?OPERATION-NAME=findItemsByKeywords";
+url += "&SERVICE-VERSION=1.0.0";
+url += "&SECURITY-APPNAME=DagmawiY-1eb7-4b6e-be18-1648a0009381";
+url += "&GLOBAL-ID=EBAY-US";
+url += "&RESPONSE-DATA-FORMAT=JSON";
+url += "&callback=_cb_findItemsByKeywords";
+url += "&REST-PAYLOAD";
+url += "&keywords=shirt+men";
+url += "&paginationInput.entriesPerPage=15";
+url += urlfilter;
+
+// Submit the request 
+s=document.createElement('script'); // create script element
+s.src= url;
+document.body.appendChild(s);
+</script>
+
+
+<div id="results" style="reel" position='relative'></div>	
+
+</article>
+
+
+</div>
+
+<a href="" class="button style2 down">View Cart</a>
+
+</section>
+
+
+
+
+</body>
+</html>

@@ -26,7 +26,7 @@
 
 
 
-	<script>
+<script>
 	$(document).ready(init);
 	var checked = [];
 
@@ -35,8 +35,9 @@
                 checked = $('[name="items"]:checked').map(function() {
                 	return this.value;
                 }).get();
-
-                console.log(checked);
+                //checkedURL.push(checked);
+                //console.log(checkedURL);
+                //alert(checked);
 
             }
 
@@ -49,8 +50,7 @@
 
             
             </script>
-
-
+            
         </head>
         <body>
         	<!-- Header -->
@@ -75,7 +75,7 @@
         			<header>
         				<h2><img src="images/intro.png"> </h2>
         			</header>
-        			<p>Welcome to re<strong>B</strong>ay, a website that takes the stress of donating your own clothes and allows you to pick and purchase reasonable clothing items from eBay to purchase and donate to your choice of charity</a>.</p>
+        			<p>Welcome to re<strong>B</strong>ay, a website that takes the stress of donating your toys for children and allows you to pick and purchase reasonable items from eBay to purchase and donate to your choice of charity</a>.</p>
         			<footer>
         				<a href="#one" class="button scrolly style2 down">More</a>
         			</footer>
@@ -87,37 +87,36 @@
 
 
         		<select class = "box1 style2" width = "300" style = "width: 300px" id = "Clothing">
-        			<option value="Select Clothing">Select Clothing</option>
-        			<option value="Shirt">Shirt</option>
-        			<option value="Pants">Pants</option>
-        			<option value="Shoes">Shoes</option>
+        			<option value="Select Toy ">Select Toy</option>
+        			<option value="Car">Car</option>
+        			<option value="Trucks">Action Figure</option>
+        		<!-- 	<option value=" ">Doll</option> -->
         		</select>
 
 
         		<select class = "box2 style2" width = "300" style = "width: 300px" id = "Gender">
         			<option value="Select Gender">Select Gender</option>
-        			<option value="Male">Male</option>
-        			<option value="Woman">Woman</option>
+        			<option value="Boy">Boy</option>
+        			<option value="Girl">Girl</option>
         		</select>
 
-        		<a href="#" class="button style2 big" onClick ="searchButton()">Search</a>
+        		<a href="#" class="button style2 big"  onClick = "searchButton()" >Search</a>
 
 
         		<script>
+        		var clothingResult;
+        		var genderResult;
 
-        			var col;
-        			var gen;
-        			var clothingResult;
-        			var genderResult;
+
         		function searchButton(){
 
-        			col = document.getElementById('Clothing');
-        			gen = document.getElementById('Gender');
+        			var col = document.getElementById('Clothing');
+        			var gen = document.getElementById('Gender');
         			clothingResult = col.options[col.selectedIndex].text;
         			genderResult = gen.options[gen.selectedIndex].text
         			if(clothingResult != "Select Clothing"){
         				if(genderResult != "Select Gender"){
-        					alert(clothingResult + "+" + genderResult);
+        					//alert(clothingResult + "+" + genderResult);
 
         				}
         			}
@@ -144,6 +143,10 @@
 
         			var listID =[];
         			var items = [];
+        			var urlStart;
+					var urlIDFront;
+					var urlIDBack;
+					var idFUll;
 
 	// Parse the response and build an HTML table to display search results
 	function _cb_findItemsByKeywords(root) {
@@ -175,7 +178,7 @@
 		html.push("</tr>");
 
 		for (var i = 0; i < items.length; ++i) {
-			html.push('<input type="checkbox" name="' + "items" + '" value=' + i + '" id=pic' + i + '">');
+			html.push('<input type="checkbox" name="' + "items" + '" value="' + i + '" id="pic' + i + '">');
 			html.push('<p3>Item ' + (i + 1) + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + '</p3>');
 		}
 
@@ -189,17 +192,14 @@
 
 }  // End _cb_findItemsByKeywords() function
 
-
-
-	//Make URL
-	function makeURL(){
-		var urlStart = "http://cart.payments.ebay.com/sc/add?ssPageName=CART:ATC";
-		var urlIDFront = "&item=iid:";
-		var urlIDBack = ",qty:1";
-		for (i = 0; i < checked.length; ++i){
-			var idFUll =+ urlIDFront + checked(i) + urlIDBack;
+	//Checks if boxes are selected
+	function checkBoxes() {
+		var checkedIDList = [];
+		for (var i = 0; i < listID.length; ++i){
+			if (document.getElementById(i).checked){
+				listID(i).push(checkedIDList);
+			}
 		}
-		var cartURL = urlStart + idFUll;
 	}
 
 
@@ -211,8 +211,8 @@ var filterarray = [
 "paramValue":"USD"},
 {"name":"FreeShippingOnly", 
 "value":"true", 
-"paramName":"", 
-"paramValue":""},
+"paramName":"Available", 
+"paramValue":"true"},
 {"name":"ListingType", 
 "value":["FixedPrice", "StoreInventory"], 
 "paramName":"", 
@@ -260,7 +260,7 @@ url += "&GLOBAL-ID=EBAY-US";
 url += "&RESPONSE-DATA-FORMAT=JSON";
 url += "&callback=_cb_findItemsByKeywords";
 url += "&REST-PAYLOAD";
-url += "&keywords=shirt+men";
+url += "&keywords= toys+car";
 url += "&paginationInput.entriesPerPage=15";
 url += urlfilter;
 
@@ -314,10 +314,32 @@ document.body.appendChild(s);
 			</div>
 			<footer>
 				<ul class="actions">
-					<li><a href="#" class="button scrolly style2 big" id="cart" >View Cart</a></li>
+					<li><a href="#" class="button scrolly style2 big" onClick = "Check()">View Cart</a></li>
 				</ul>
+
 			</br>
 		</footer>
+		<script>
+		function Check(){
+			urlStart = "http://cart.payments.ebay.com/sc/add?ssPageName=CART:ATC";
+			urlIDFront = "&item=iid:";
+			urlIDBack = ",qty:1";
+			var cartURL = encodeURI(checked.reduce(function(acc, item, index) {
+				return acc + urlIDFront + listID[item] + urlIDBack;
+			}, urlStart));
+			// console.log(urlStart, urlIDFront, urlStart);
+			// for (i = 0; i < checked.length; ++i){
+			// 	idFUll =+ urlIDFront + listID[checked[i]]+ urlIDBack;
+			// }
+			// var cartURL = urlStart + idFUll;
+			window.location.replace(cartURL);
+
+
+		
+		}
+
+		</script>
+
 	</section>
 
 
